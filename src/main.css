@@ -1,0 +1,63 @@
+.fieldInput {
+    .fieldInput {
+        display: inline-block;
+    }
+
+    &:hover {
+        > div > span > .arrow {
+            color: deepskyblue;
+            font-weight: bold;
+        }
+    }
+
+    > div {
+        display: inline-block;
+    }
+
+    .moreInput {
+        display: inline-flex;
+
+        &:hover {
+            > span > .arrow {
+                color: black;
+                font-weight: normal;
+            }
+        }
+
+        .selector {
+            display: inline-block;
+        }
+    }
+}
+
+.selector {
+    > .selectedValue {
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.selection {
+    position: relative;
+    border-bottom: 1px solid black;
+    outline: none;
+
+    > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: 1px solid black;
+
+        .opt {
+            cursor: default;
+
+            &:hover {
+                background-color: lightblue;
+            }
+        }
+    }
+}
