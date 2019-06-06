@@ -2,8 +2,16 @@
   "name": "gen-types",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "bin": "main.js",
+  "files": [
+    "main.js",
+    "dist"
+  ],
+  "scripts": {
+    "main": "node main.js",
+    "dev": "parcel src/index.html",
+    "build": "rimraf dist && parcel build src/index.html --no-source-maps"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rcpooley/GenTypes.git"
@@ -14,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/rcpooley/GenTypes/issues"
   },
-  "homepage": "https://github.com/rcpooley/GenTypes#readme"
+  "homepage": "https://github.com/rcpooley/GenTypes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
