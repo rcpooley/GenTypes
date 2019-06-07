@@ -4,7 +4,7 @@ import Selection from './selection';
 
 type Props = {
     prompt: string,
-    value: string,
+    value: string | null,
     options: Array<string>,
     onChange: (resp: {opt: string, idx: number}) => any
 }
@@ -14,7 +14,7 @@ type State = {
 }
 
 class Selector extends React.Component<Props, State> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
 
         this.state = {

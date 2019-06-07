@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 
 type Props = {
     prompt: string,
@@ -8,21 +8,27 @@ type Props = {
     onBlur?: () => any
 }
 
-class Selection extends React.Component<Props> {
-    constructor(props) {
+type State = {
+    mainDiv: React.ElementRef<any>
+}
+
+class Selection extends React.Component<Props, State> {
+    constructor(props: Props) {
         super(props);
 
-        this.mainDiv = React.createRef();
+        this.state = {
+            mainDiv: React.createRef(),
+        };
     }
 
     componentDidMount() {
-        this.mainDiv.current.focus();
+        this.state.mainDiv.current.focus();
     }
 
     render() {
         return (
             <div
-                ref={this.mainDiv}
+                ref={this.state.mainDiv}
                 className="selection"
                 tabIndex={0}
                 onBlur={() => {

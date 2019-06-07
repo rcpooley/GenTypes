@@ -42,9 +42,9 @@ class FieldInput extends React.Component<Props> {
                             <span>(<Selector
                                 prompt="#"
                                 value={value.numArgs}
-                                options={new Array(8).fill(null).map((_, idx) => idx + 2)}
+                                options={new Array(8).fill(null).map((_, idx) => (idx + 2).toString())}
                                 onChange={({opt}) => {
-                                    value.numArgs = opt;
+                                    value.numArgs = parseInt(opt);
                                     value.data = value.data.slice(0, value.numArgs);
                                     while (value.data.length < value.numArgs) {
                                         value.data.push(null);
