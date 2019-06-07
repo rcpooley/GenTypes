@@ -2,7 +2,7 @@
 import type {FieldType} from "./types";
 
 import React from 'react';
-import FieldInput from './fieldInput';
+import TypeInput from './typeInput';
 
 type Props = {}
 
@@ -26,7 +26,7 @@ class FieldsEditor extends React.Component<Props, State> {
         return (
             <div>
                 {fields.map((field, idx) => (
-                    <FieldInput
+                    <TypeInput
                         key={idx}
                         types={window.PRELOADED.types}
                         value={field}
