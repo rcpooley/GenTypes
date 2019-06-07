@@ -26,6 +26,8 @@ class FieldInput extends React.Component<Props> {
     render() {
         const {types, value, onChange} = this.props;
 
+        const dictKeyTypes = types.filter(type => type.dictKey);
+
         return (
             <div className="fieldInput">
                 <Selector
@@ -57,7 +59,7 @@ class FieldInput extends React.Component<Props> {
                                 {value.data.map((subType, idx) => (
                                     <span key={idx}>
                                         <FieldInput
-                                            types={types}
+                                            types={(idx === 0 && value.name === 'Dict') ? dictKeyTypes : types}
                                             value={subType}
                                             onChange={val => {
                                                 value.data[idx] = val;

@@ -6,10 +6,10 @@ import './main.css';
 
 window.PRELOADED = {
     types: [
-        {name: 'string', numArgs: 0},
-        {name: 'int', numArgs: 0},
-        {name: 'boolean', numArgs: 0},
-        {name: 'float', numArgs: 0},
+        {name: 'string', numArgs: 0, dictKey: true},
+        {name: 'int', numArgs: 0, dictKey: true},
+        {name: 'boolean', numArgs: 0, dictKey: true},
+        {name: 'float', numArgs: 0, dictKey: true},
         {name: 'null', numArgs: 0},
         {name: 'Array', numArgs: 1},
         {name: 'Dict', numArgs: 2},
