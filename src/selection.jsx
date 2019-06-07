@@ -38,8 +38,15 @@ class Selection extends React.Component<Props, State> {
                 }}
             >
                 {this.props.prompt}
-                <div>
+                <div className="popup">
                     <br/>
+                    <input
+                        className="search"
+                        type="text"
+                        onFocus={() => {
+                            console.log('focus');
+                        }}
+                    />
                     {this.props.options.map((opt, idx) => (
                         <div
                             className="opt"
