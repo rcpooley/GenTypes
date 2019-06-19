@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FieldsEditor from './fieldsEditor';
+import Menu from './menu';
 
 import './main.css';
 
@@ -17,7 +17,7 @@ window.PRELOADED = {
     ]
 };
 
-ReactDOM.render(<FieldsEditor />, document.getElementById('root'));
+ReactDOM.render(<Menu />, document.getElementById('root'));
 
 if (module.hot) {
     module.hot.accept();
