@@ -9,6 +9,7 @@ type Props = {}
 type State = {
     tabs: Array<Tab>,
     selected: Tab,
+    nodes: Array<React.Node>
 }
 
 type Tab = {
@@ -24,11 +25,33 @@ class Menu extends React.Component<Props, State> {
             {name: 'Types', component: TypesTab},
             {name: 'Entities', component: EntitiesTab},
         ];
+
         return {
             tabs,
             selected: tabs[0],
+            nodes: [],
         };
     }
+
+    constructor(props: Props) {
+        super(props);
+
+        window._genTypes.renderNode = (node: React.Node) => {
+            const {nodes} = this.state;
+            nodes.push(node);
+            this.setState({nodes});
+        };
+
+        window._genTypes.removeNode = (node: React.Node) => {
+            const {nodes} = this.state;
+            const idx = nodes.indexOf(node);
+            if (idx !== -1) {
+                nodes.splice(idx, 1);
+                this.setState({nodes});
+            }
+        };
+    }
+
 
     renderSelected() {
         const Selected = this.state.selected.component;
@@ -37,17 +60,21 @@ class Menu extends React.Component<Props, State> {
     }
 
     render() {
-        const {selected} = this.state;
+        const {selected, nodes} = this.state;
 
         return (
             <div id="menu">
+                {nodes.map((node, idx) => <div key={idx}>{node}</div>)}
                 <div className="header">
                     {this.state.tabs.map(tab => (
-                        <div className={`tab${tab === selected ? ' active' : ''}`} onClick={() => {
-                            this.setState({
-                                selected: tab
-                            });
-                        }}>
+                        <div
+                            key={tab.name}
+                            className={`tab${tab === selected ? ' active' : ''}`}
+                            onClick={() => {
+                                this.setState({
+                                    selected: tab
+                                });
+                            }}>
                             {tab.name}
                         </div>
                     ))}

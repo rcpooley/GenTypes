@@ -4,6 +4,8 @@ import Menu from './menu';
 
 import './main.css';
 
+window._genTypes = {};
+
 window.PRELOADED = {
     types: [
         {name: 'string', numArgs: 0, dictKey: true},

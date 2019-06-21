@@ -6,6 +6,30 @@
     display: flex;
 }
 
+.modal {
+    > .cover {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #3a3a3a;
+        opacity: 0.8;
+    }
+
+    > .content {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        min-width: 300px;
+        min-height: 200px;
+    }
+}
+
 #menu {
     > .header {
         display: flex;
@@ -24,6 +48,17 @@
             &.active {
                 background-color: #808080;
             }
+        }
+    }
+}
+
+.addTypesModalContent {
+    > .name-field {
+        display: flex;
+
+        > input {
+            margin-left: 7px;
+            flex-grow: 1;
         }
     }
 }
